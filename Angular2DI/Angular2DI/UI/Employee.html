@@ -1,0 +1,46 @@
+﻿<div>
+
+    EmployeeCode:- <input [(ngModel)] ="EmployeeCurrentObj.EmployeeCode" id="EmpCode" type="text" name="EmployeeCode" /> <br />
+    EmployeeName:- <input [(ngModel)] ="EmployeeCurrentObj.EmployeeName" id="EmpName" type="text" name="EmployeeName" /> <br />
+    City:- <input [(ngModel)] ="EmployeeCurrentObj.City" id="EmpCity" type="text" name="City" /> <br /> <br />
+    Employee Type:- <select id="Select1" [(ngModel)] ="EmployeeType" 
+                            (ngModelChange)="OnEmployeeTypeChange($event)">
+        <option value="Employee">Employee</option>
+        <option value="HighLevelEmployee">HighLevelEmployee</option>
+
+    </select>
+    <input id="Button1" [disabled]="!(EmployeeCurrentObj.IsValidEmployee())" type="button" value="Save" (click)="Add()" />
+    <input id="Button2" type="button" value="Update" (click)="Update()" />
+    <input id="Button3" type="button" value="Cancel" (click)="Clear()" /> <br /> 
+
+    {{EmployeeCurrentObj.EmployeeCode}} <br />
+    {{EmployeeCurrentObj.EmployeeName}} <br />
+    {{EmployeeCurrentObj.City}} <br />
+
+    
+    <grid-ui [grid-Data] ="Employees"
+             [grid-entity] ="Employee"
+             (grid-output) ="Select($event)">
+            
+    </grid-ui>
+
+    <br />
+    <br />
+    <random-ui>
+
+    </random-ui>
+
+    <br />
+    <date-ui>
+
+    </date-ui>
+
+    <ContractEmployee-ui>
+
+    </ContractEmployee-ui>
+
+    <timezone-ui>
+
+    </timezone-ui>
+
+</div>
